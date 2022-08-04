@@ -1,0 +1,115 @@
+# Created by https://www.toptal.com/developers/gitignore/api/eclipse,maven
+# Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,maven
+
+### Eclipse ###
+/todolist/.metadata
+/todolist/bin/
+/todolist/tmp/
+/todolist/*.tmp
+/todolist/*.bak
+/todolist/*.swp
+/todolist/*~.nib
+/todolist/local.properties
+/todolist/.settings/
+/todolist/.loadpath
+/todolist/.recommenders
+
+# External tool builders
+/todolist/.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+/todolist/*.launch
+
+# PyDev specific (Python IDE for Eclipse)
+/todolist/*.pydevproject
+
+# CDT-specific (C/C++ Development Tooling)
+/todolist/.cproject
+
+# CDT- autotools
+/todolist/.autotools
+
+# Java annotation processor (APT)
+/todolist/.factorypath
+
+# PDT-specific (PHP Development Tools)
+/todolist/.buildpath
+
+# sbteclipse plugin
+/todolist/.target
+
+# Tern plugin
+/todolist/.tern-project
+
+# TeXlipse plugin
+/todolist/.texlipse
+
+# STS (Spring Tool Suite)
+/todolist/.springBeans
+
+# Code Recommenders
+/todolist/.recommenders/
+
+# Annotation Processing
+/todolist/.apt_generated/
+/todolist/.apt_generated_test/
+
+# Scala IDE specific (Scala & Java development for Eclipse)
+/todolist/.cache-main
+/todolist/.scala_dependencies
+/todolist/.worksheet
+
+# Uncomment this line if you wish to ignore the project description file.
+# Typically, this file would be tracked if it contains build/dependency configurations:
+#.project
+
+### Eclipse Patch ###
+# Spring Boot Tooling
+/todolist/.sts4-cache/
+
+### Java ###
+# Compiled class file
+/todolist/*.class
+
+# Log file
+/todolist/*.log
+
+# BlueJ files
+/todolist/*.ctxt
+
+# Mobile Tools for Java (J2ME)
+/todolist/.mtj.tmp/
+
+# Package Files #
+/todolist/*.jar
+/todolist/*.war
+/todolist/*.nar
+/todolist/*.ear
+/todolist/*.zip
+/todolist/*.tar.gz
+/todolist/*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+/todolist/hs_err_pid*
+/todolist/replay_pid*
+
+### Maven ###
+/todolist/target/
+/todolist/pom.xml.tag
+/todolist/pom.xml.releaseBackup
+/todolist/pom.xml.versionsBackup
+/todolist/pom.xml.next
+/todolist/release.properties
+/todolist/dependency-reduced-pom.xml
+/todolist/buildNumber.properties
+/todolist/.mvn/timing.properties
+# https://github.com/takari/maven-wrapper#usage-without-binary-jar
+/todolist/.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse m2e generated files
+# Eclipse Core
+/todolist/.project
+# JDT-specific (Eclipse Java Development Tools)
+/todolist/.classpath
+
+# End of https://www.toptal.com/developers/gitignore/api/eclipse,maven
