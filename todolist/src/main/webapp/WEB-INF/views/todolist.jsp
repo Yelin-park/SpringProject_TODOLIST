@@ -90,7 +90,7 @@
 <div>
 <img class="logo" src="${pageContext.request.contextPath}/resources/logo.png" alt="" width="10%" height="80px" style="float: left;">
 <button class="w-49 btn btn-lg btn-primary logout" type="button">회원탈퇴</button>
-<button class="w-49 btn btn-lg btn-primary btncustom" type="button">로그아웃</button>
+<button id="logoutbtn" class="w-49 btn btn-lg btn-primary btncustom" type="button">로그아웃</button>
 </div>
 
   <div class="container py-5 h-100">
@@ -221,6 +221,11 @@ triggerTabList.forEach(function (triggerEl) {
   })
 });
 
+var member = "${member}" // 세션 확인용
+$("#logoutbtn").on("click", function () {
+	/* alert(member); */ // 세션 확인용
+	location.href = "${pageContext.request.contextPath}"+"/member/logout";
+});
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

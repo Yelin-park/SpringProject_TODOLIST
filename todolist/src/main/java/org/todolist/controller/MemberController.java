@@ -99,9 +99,12 @@ public class MemberController {
 	}
 	
 	@GetMapping("/logout")
-	public String logout(MemberDTO member, HttpSession session, RedirectAttributes rttr, Model model) {
+	public String logout(MemberDTO member, HttpSession session) {
 		log.info("로그아웃 요청");
-
+		
+		session.invalidate();
+		
+		log.info("로그아웃 완료");
 		return "main";
 
 	}
