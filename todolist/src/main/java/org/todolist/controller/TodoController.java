@@ -3,6 +3,7 @@ package org.todolist.controller;
 import java.util.Locale;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,17 +29,28 @@ public class TodoController {
 	
 	@Setter(onMethod_ = {@Autowired})
 	private TodolistMapper mapper;
+	
+	@Setter(onMethod_ = {@Autowired})
+	private MemberDTO member;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String main(Locale locale, Model model) {
 		log.info("메인 페이지  진입");
 		return "main";
-	}
+	}	
 	
 	@RequestMapping(value = "/todolist", method = RequestMethod.GET)
-	public String todolist(Locale locale, Model model) {
+	public String todolist(Locale locale, HttpSession session, Model model) {
 		log.info("todolist 페이지 진입");
-		return "todolist";
+		MemberDTO member = (MemberDTO) session.getAttribute("member");
+		if(member == null) {
+			log.info("로그인 X 로그인 페이지 리다이렉트");
+			return "redirect:/member/login";
+		} else {
+			log.info("로그인 O todolist 페이지로 이동");
+			return "todolist";
+		}
 	}
+	
 	
 }

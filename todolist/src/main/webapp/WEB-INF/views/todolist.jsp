@@ -4,9 +4,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <title>인생은 점진적 과부하 - ToDoList</title>
 <style>
+	*{
+		font-family: 'Noto Sans KR', sans-serif!important;
+	}
+
 	.gradient-custom {
 		background-color: #091E7B;
 	}
@@ -46,6 +53,12 @@
 	.ms-2{
 		font-weight: bold!important;
 	}
+	
+	.customfade{
+		opacity: 0;
+		fo
+	}
+
 </style>
 <style>	
 	@media (min-width: 767px) {
@@ -120,11 +133,11 @@
               </li>
               <li class="nav-item" role="presentation">
                 <a class="nav-link" id="ex1-tab-2" data-mdb-toggle="tab" href="#ex1-tabs-2" role="tab"
-                  aria-controls="ex1-tabs-2" aria-selected="false">해야할 일</a>
+                  aria-controls="ex1-tabs-2" aria-selected="false">할일</a>
               </li>
               <li class="nav-item" role="presentation">
                 <a class="nav-link" id="ex1-tab-3" data-mdb-toggle="tab" href="#ex1-tabs-3" role="tab"
-                  aria-controls="ex1-tabs-3" aria-selected="false">완료한 일</a>
+                  aria-controls="ex1-tabs-3" aria-selected="false">완료</a>
               </li>
             </ul>
             <!-- Tabs navs -->
@@ -134,67 +147,66 @@
             
               <div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel"
                 aria-labelledby="ex1-tab-1">
-                <ul class="list-group mb-0">
+                <ul class="list-group mb-0" id="ex1ul">
                   <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
                     style="background-color: #f4f6f7;">
                     <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." checked />
-                    <s>Cras justo odio Cras justo odio Cras justo odio Cras justo odio<i class="bi bi-x-octagon"></i></s>
-                    
+                    <p>아침 운동하기<i class="bi bi-x-octagon"></i></p>
                   </li>
                   <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
                     style="background-color: #f4f6f7;">
                     <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." checked />
-                    <s>Dapibus ac facilisis in<i class="bi bi-x-octagon"></i></s>
+                    <p>스프링 강의 듣기<i class="bi bi-x-octagon"></i></p>
                   </li>
                   <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
                     style="background-color: #f4f6f7;">
                     <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." />
-                    <p>Morbi leo risus<i class="bi bi-x-octagon"></i></p>
+                    <p>차량정기점검받으러가기<i class="bi bi-x-octagon"></i></p>
                   </li>
                   <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
                     style="background-color: #f4f6f7;">
                     <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." />
-                    <p>Porta ac consectetur ac<i class="bi bi-x-octagon"></i></p>
+                    <p>프로젝트 기능 구현하기<i class="bi bi-x-octagon"></i></p>
                   </li>
                   <li class="list-group-item d-flex align-items-center border-0 mb-0 rounded"
                     style="background-color: #f4f6f7;">
                     <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." />
-                    <p>Vestibulum at eros<i class="bi bi-x-octagon"></i></p>
+                    <p>커피 주문하기<i class="bi bi-x-octagon"></i></p>
                   </li>
                 </ul>
               </div>
               
               <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
-                <ul class="list-group mb-0">
+                <ul class="list-group mb-0" id="ex2ul">
                   <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
                     style="background-color: #f4f6f7;">
                     <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." />
-                    Morbi leo risus
+                    <p>차량정기점검받으러가기<i class="bi bi-x-octagon"></i></p>
                   </li>
                   <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
                     style="background-color: #f4f6f7;">
                     <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." />
-                    Porta ac consectetur ac
+                    <p>프로젝트 기능 구현하기<i class="bi bi-x-octagon"></i></p>
                   </li>
                   <li class="list-group-item d-flex align-items-center border-0 mb-0 rounded"
                     style="background-color: #f4f6f7;">
                     <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." />
-                    Vestibulum at eros
+                    <p>커피 주문하기<i class="bi bi-x-octagon"></i></p>
                   </li>
                 </ul>
               </div>
               
               <div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
-                <ul class="list-group mb-0">
+                <ul class="list-group mb-0" id="ex3ul">
                   <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
                     style="background-color: #f4f6f7;">
                     <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." checked />
-                    <s>Cras justo odio</s>
+                    <p>아침 운동하기<i class="bi bi-x-octagon"></i></p>
                   </li>
                   <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
                     style="background-color: #f4f6f7;">
                     <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." checked />
-                    <s>Dapibus ac facilisis in</s>
+                    <p>스프링 강의 듣기<i class="bi bi-x-octagon"></i></p>
                   </li>
                 </ul>
               </div>
@@ -210,22 +222,57 @@
   </div>
 <!-- </section> -->
 
-<script type="text/javascript">
-var triggerTabList = [].slice.call(document.querySelectorAll('#myTab button'))
-triggerTabList.forEach(function (triggerEl) {
-  var tabTrigger = new bootstrap.Tab(triggerEl)
+<script>
+	$(document).ready(function () {
+		$("input[type='checkbox']:checked").next("p").css("text-decoration", "line-through");
+	});
 
-  triggerEl.addEventListener('click', function (event) {
-    event.preventDefault()
-    tabTrigger.show()
-  })
-});
+	const all = $("#ex1-tab-1");
+	const todo = $("#ex1-tab-2");
+	const complete = $("#ex1-tab-3");
+	
+	all.on("click", function () {
+		$(this).addClass("active");
+		todo.removeClass("active");
+		complete.removeClass("active");
+		$("#ex1-tabs-1").addClass("show active");				
+		$("#ex1-tabs-2").removeClass("show active");
+		$("#ex1-tabs-3").removeClass("show active");
+	});
+	
+	todo.on("click", function () {
+		$(this).addClass("active");
+		all.removeClass("active");
+		complete.removeClass("active");
+		$("#ex1-tabs-2").addClass("show active");	
+		$("#ex1-tabs-1").removeClass("show active");
+		$("#ex1-tabs-3").removeClass("show active");
+	});
+	
+	complete.on("click", function () {
+		$(this).addClass("active");
+		all.removeClass("active");
+		todo.removeClass("active");
+		$("#ex1-tabs-3").addClass("show active");	
+		$("#ex1-tabs-1").removeClass("show active");
+		$("#ex1-tabs-2").removeClass("show active");
+	});
+	
+	
+	$("input[type='checkbox']").on("click", function () {
+		if(	$(this).prop("checked") ){
+			$(this).next("p").css("text-decoration", "line-through");
+		} else {
+			$(this).next("p").css("text-decoration", "none");
+		}	
+	});
+	
 
-var member = "${member}" // 세션 확인용
-$("#logoutbtn").on("click", function () {
-	/* alert(member); */ // 세션 확인용
-	location.href = "${pageContext.request.contextPath}"+"/member/logout";
-});
+	var member = "${member}" // 세션 확인용
+	$("#logoutbtn").on("click", function () {
+		/* alert(member); */ // 세션 확인용
+		location.href = "${pageContext.request.contextPath}"+"/member/logout";
+	});
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

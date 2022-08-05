@@ -5,10 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <title>인생은 점진적 과부하 - 로그인</title>
 <style>
-   
+	*{
+		font-family: 'Noto Sans KR', sans-serif!important;
+	}
+	
    html, body {
      height: 100%;
    }
@@ -62,7 +68,7 @@
 	.mb-4{
 		width: 100%;
     	height: auto;
-    	border: 5px solid #ffc107;
+    	border: 5px solid #f0ff94;
     	border-radius: 15px;
 	}
 	
@@ -72,8 +78,8 @@
 	
 	.btncustom{
 		color: black!important;
-    	background-color: #ffc107!important;
-    	border-color: #ffc107!important;
+    	background-color: #f0ff94!important;
+    	border-color: #f0ff94!important;
     	font-weight: bold!important;
     	font-size: 25px!important;
 	}
@@ -90,7 +96,7 @@
    <main class="form-signin">
       <form id="loginform" action="${pageContext.request.contextPath}/member/login" method="post">
          <img class="mb-4" src="${pageContext.request.contextPath}/resources/logo.png" alt="" width="72" height="57">
-         <h1 class="h3 mb-3" style="font-weight: bold; text-align: center; color: #ffb307;">주저하지말고 로그인!</h1>
+         <h1 class="h3 mb-3" style="font-weight: bold; text-align: center; color: #f0ff94;">주저하지말고 로그인!</h1>
          
          <div class="form-floating">
             <input name="id" type="text" class="form-control" id="id" placeholder="아이디 입력...">

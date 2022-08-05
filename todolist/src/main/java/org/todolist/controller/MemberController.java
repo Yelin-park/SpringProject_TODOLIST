@@ -82,6 +82,7 @@ public class MemberController {
 		if(login != null && pwdMatch == true) {
 			log.info("로그인 성공");
 			session.setAttribute("member", login);
+			log.info(login);
 			return "redirect:/todolist";
 		} else {
 			log.info("로그인 실패 - 비밀번호 오류");

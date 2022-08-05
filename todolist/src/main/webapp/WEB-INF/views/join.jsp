@@ -4,9 +4,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <title>인생은 점진적 과부하 - 회원가입</title>
 <style>  
+	*{
+		font-family: 'Noto Sans KR', sans-serif!important;
+	}
+	
    body {
      display: flex;
      align-items: center;
@@ -69,8 +76,8 @@
 	
 	.btn-primary{
 		width: 100%;
-		background-color: #ffc107!important;
-		border-color: #ffc107!important;
+		background-color: #f0ff94!important;
+		border-color: #f0ff94!important;
 		color: black!important;
 	}
 	
@@ -110,7 +117,7 @@
 <body style="background-color:#091E7B">
 	<div class="container"><!-- 좌우측의 공간 확보 -->
 	    <img class="mb-4 gomain" id="gomain" src="${pageContext.request.contextPath}/resources/logo.png" alt="">
-	    <hr style="height: 3px; color: #ffc107; opacity: 0.6;"/>
+	    <hr style="height: 3px; color: #f0ff94; opacity: 0.6;"/>
 	    <!-- 본문 들어가는 부분 -->             
 	    <form id="joinform" class="form-horizontal" role="form" method="post" action="${pageContext.request.contextPath }/member/join">
 	        <div class="form-group" id="divId">
