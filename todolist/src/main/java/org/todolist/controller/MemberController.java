@@ -34,18 +34,24 @@ public class MemberController {
 	@PostMapping("/idCheck")
 	@ResponseBody
 	public int idCheck(@RequestParam("id") String id) {
+		
 		int result = memberService.idCheck(id);
 		return result;
+		
 	}
 	
 	@GetMapping("/join")
 	public String join() {
+		
 		log.info("회원가입  페이지 진입");
 		return "join";
-	}	
+		
+	} // join	
+	
 	
 	@PostMapping("/join")
 	public String join(MemberDTO member) {
+		
 		log.info("회원가입 post 요청");
 		
 		String inputPass = member.getPwd();
@@ -61,10 +67,12 @@ public class MemberController {
 		} else {
 			return "redirect:/member/login";
 		}
-	}
 		
+	}
+	
 	@PostMapping("/login")
-	public String login(MemberDTO member, HttpSession session, RedirectAttributes rttr, Model model) {
+	public String login(MemberDTO member, HttpSession session, Model model) {
+		
 		log.info("로그인 post 요청");
 				
 		session.getAttribute("member");
@@ -90,13 +98,16 @@ public class MemberController {
 			// rttr.addFlashAttribute("msg", false);
 			model.addAttribute("msg", "pwdmiss");
 			return "login";
-		} 		
+		} 
+		
 	}
 	
 	@GetMapping("/login")
 	public String login() {
+		
 		log.info("로그인 페이지  진입");
 		return "login";
+		
 	}
 	
 	@GetMapping("/logout")
@@ -108,6 +119,55 @@ public class MemberController {
 		log.info("로그아웃 완료");
 		return "main";
 
+	}
+	
+	@GetMapping("/withdrawal")
+	public String withdrawal() {
+		
+		log.info("회원탈퇴 페이지 진입");
+		return "withdrawal";
+		
+	}
+	
+	@PostMapping("/withdrawal")
+	public String withdrawal(MemberDTO member, HttpSession session, Model model) {
+		log.info("회원탈퇴 post 요청");
+		
+		session.getAttribute("member");
+		int result = memberService.idCheck(member.getId());
+		
+		if(result != 1) {
+			log.info("회원탈퇴 실패 - 아이디 오류");
+			model.addAttribute("msg", "idmiss");
+			return "withdrawal";
+		}
+		
+		MemberDTO withdrawalMember = memberService.login(member);
+		
+		boolean pwdMatch = pwdEncoder.matches(member.getPwd(), withdrawalMember.getPwd());
+		
+		if(withdrawalMember != null && pwdMatch == true) {
+			System.out.println(withdrawalMember);
+			withdrawalMember.setName("회원탈퇴");
+			withdrawalMember.setTel("010-1111-1111");
+			withdrawalMember.setEmail("withdrawal@withdrawal.com");
+			withdrawalMember.setPwd("Withdrawal123@");
+			int cnt = memberService.withdrawal(withdrawalMember);
+			if(cnt == 1) {
+				log.info("회원탈퇴 성공");
+				log.info(withdrawalMember);
+				return "redirect:/member/login";
+			} else {
+				log.info("회원탈퇴 실패");
+				model.addAttribute("msg", "pwdmiss");
+				return "withdrawal";
+			}		
+		} else {
+			log.info("회원탈퇴 실패 - 비밀번호 오류");
+			model.addAttribute("msg", "pwdmiss");
+			return "withdrawal";
+		}
+		
 	}
 	
 	

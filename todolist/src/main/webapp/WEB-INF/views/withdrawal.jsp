@@ -10,14 +10,14 @@
 <link href="${pageContext.request.contextPath}/resources/css/login.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<title>인생은 점진적 과부하 - 로그인</title>
+<title>인생은 점진적 과부하 - 회원탈퇴</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
    <main class="form-signin">
-      <form id="loginform" action="${pageContext.request.contextPath}/member/login" method="post">
+      <form id="withdrawalform" action="${pageContext.request.contextPath}/member/withdrawal" method="post">
          <img class="mb-4" src="${pageContext.request.contextPath}/resources/img/logo.png" alt="인생은 점진적 과부하 로고" width="72" height="57">
-         <h1 class="h3 mb-3" style="font-weight: bold; text-align: center; color: #f0ff94;">주저하지말고 로그인!</h1>
+         <h1 class="h3 mb-3" style="font-weight: bold; text-align: center; color: #f0ff94;">점진적 과부하를 떠나시게요? :(</h1>
          
          <div class="form-floating">
             <input name="id" type="text" class="form-control" id="id" placeholder="아이디 입력...">
@@ -28,8 +28,8 @@
             <label for="pwd">비밀번호</label>
          </div>
          
-         <button class="w-49 btn btn-lg btn-primary btncustom" id="loginbtn" type="button">로그인</button>
-         <button class="w-49 btn btn-lg btn-primary btncustom" id="joinbtn" type="button">회원가입</button>
+         <button class="w-49 btn btn-lg btn-primary btncustom" id="homebtn" type="button">Home</button>
+         <button class="w-49 btn btn-lg btn-primary btncustom" id="withdrawalbtn" type="button">회원탈퇴</button>
          <p class="mt-5 mb-3 made">Made By Yaliny</p>
       </form>
    </main>
@@ -43,17 +43,17 @@
 			alert("아이디를 확인해 주세요.");
 		}
 		
-		$("#joinbtn").on("click", function () {
-			location.href = "${pageContext.request.contextPath}"+"/member/join";
+		$("#homebtn").on("click", function () {
+			location.href = "${pageContext.request.contextPath}"+"/main";
 		});
 		
-		$("#loginbtn").on("click", function () {
+		$("#withdrawalbtn").on("click", function () {
 			if( $("#id").val().length == 0 || $("#pwd").val().length == 0){
 				alert("아이디와 비밀번호를 입력해주세요.");
 				return false;
 			}
 			
-			$("#loginform").submit();
+			$("#withdrawalform").submit();
 		});
 		
 	});

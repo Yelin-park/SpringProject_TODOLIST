@@ -30,6 +30,12 @@ public class MemberServiceImpl implements MemberService{
 		return login;		
 	}
 
+	@Override
+	public int withdrawal(MemberDTO member) {
+		int result = mapper.withdrawal(member);
+		return result;
+	}
+
 
 	
 }

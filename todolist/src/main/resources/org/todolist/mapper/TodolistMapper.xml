@@ -3,7 +3,32 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.todolist.mapper.TodolistMapper">
+	
+	<select id="todoList" parameterType="String" resultType="org.todolist.domain.TodolistDTO">
+		SELECT todono, todoname
+		FROM todolist
+		WHERE id = #{id} AND todostate = 0
+	</select>
+	
+	<select id="completedList" parameterType="String" resultType="org.todolist.domain.TodolistDTO">
+		SELECT todono, todoname
+		FROM todolist
+		WHERE id = #{id} AND todostate = 1
+	</select>
 
-
-
+	<insert id="addTodolist">
+		INSERT INTO todolist(todono, todoname, todostate, id)
+		VALUES (seq_todolist.nextval, #{todoname}, 0, #{id})
+	</insert>
+	
+	<delete id="deltodolist" parameterType="Integer">
+		DELETE FROM todolist
+		WHERE todono = #{todono}
+	</delete>
+	
+	<update id="uptodolist" parameterType="org.todolist.domain.TodolistDTO">
+		UPDATE todolist
+		SET todostate = #{todostate}
+		WHERE todono = #{todono}
+	</update>
 </mapper>

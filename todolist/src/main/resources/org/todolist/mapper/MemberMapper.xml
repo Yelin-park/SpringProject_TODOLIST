@@ -21,4 +21,10 @@
 		WHERE id = #{id}
 	</select>
 	
+	<update id="withdrawal" parameterType="org.todolist.domain.MemberDTO">
+		UPDATE member
+		SET pwd = #{pwd}, name = #{name}, email = #{email}, tel = #{tel}, use_status = 1
+		WHERE id = #{id}
+	</update>
+	
 </mapper>

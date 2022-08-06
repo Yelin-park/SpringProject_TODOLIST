@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+* {
+	font-family: 'Noto Sans KR', sans-serif !important;
+}
+
+.gradient-custom {
+	background-color: #091E7B;
+}
+
+.btncustom {
+	background-color: #fd7e14 !important;
+	border-color: #fd7e14 !important;
+}
+
+.btn-group-lg>.btn, .btn-lg {
+	float: right;
+	margin: 5px;
+}
+
+ul>li>s, ul>li>p {
+	width: 100%;
+}
+
+ul>li>p {
+	margin: 0px auto;
+}
+
+.bi-x-octagon {
+	float: right;
+}
+
+.card {
+	margin-top: 100px;
+}
+
+.logout {
+	background-color: #dc3545 !important;
+	border-color: #dc3545 !important;
+}
+
+.ms-2 {
+	font-weight: bold !important;
+}
+
+.customfade {
+	opacity: 0;
+	fo
+}
+
+.del {
+	cursor: pointer;
+}
+
+@media ( max-width : 767px) {
+	.mobile {
+		width: 100%;
+	}
+}

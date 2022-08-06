@@ -13,4 +13,7 @@ public interface MemberService {
 	// 로그인
 	public MemberDTO login(MemberDTO member);
 	
+	// 회원탈퇴
+	public int withdrawal(MemberDTO member);
+	
 }

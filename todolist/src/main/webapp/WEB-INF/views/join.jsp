@@ -6,117 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="${pageContext.request.contextPath}/resources/css/join.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <title>인생은 점진적 과부하 - 회원가입</title>
-<style>  
-	*{
-		font-family: 'Noto Sans KR', sans-serif!important;
-	}
-	
-   body {
-     display: flex;
-     align-items: center;
-     padding-bottom: 40px;
-   }
-   
-   .form-signin {
-     width: 100%;
-     max-width: 600px;
-     padding: 15px;
-     margin: auto;
-   }
-   
-   .form-signin .checkbox {
-     font-weight: 400;
-   }
-   
-   .form-signin .form-floating:focus-within {
-     z-index: 2;
-   }
-   
-   .form-signin input[type="email"] {
-     margin-bottom: -1px;
-     border-bottom-right-radius: 0;
-     border-bottom-left-radius: 0;
-   }
-   
-   .form-signin input[type="password"] {
-     margin-bottom: 10px;
-     border-top-left-radius: 0;
-     border-top-right-radius: 0;
-   }
-   
-   .fw-normal {
-    	text-align: center;
-    }
-    
-    .w-49 {
-    	width: 49%;
-	}
-	
-	.mb-4 {
-   		width: 50%;
-    	height: 230px;
-    	display: block;
-    	margin: 0px auto;
-	}
-	
-	.col-lg-2{
-		margin: 10px auto;
-	}
-	
-	.form-group{
-		margin-left: 15%;
-	}
-	
-	.col-lg-offset-2{
-		margin-top: 30px;
-	}
-	
-	.btn-primary{
-		width: 100%;
-		background-color: #f0ff94!important;
-		border-color: #f0ff94!important;
-		color: black!important;
-	}
-	
-	.btncustomer{
-		font-weight: bold!important;
-    	font-size: 25px!important;
-	}
-	
-	label {
-    	font-size: 18px;
-    	font-weight: bold;
-    	color: white;
-	}
-	
-	.gomain, .gomain:hover {
-		cursor: pointer;
-	}
-	
-	.form-horizontal{
-		width: 80%;
-    	margin: 0px auto;
-	}
-	
-	.idclass{
-		width: 78%!important;
-	}
-	
-	.idcheck{
-		width: 20%;
-    	float: right;
-    	margin-top: -38px;
-    	font-weight: bold!important;
-	}
-</style>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body style="background-color:#091E7B">
 	<div class="container"><!-- 좌우측의 공간 확보 -->
-	    <img class="mb-4 gomain" id="gomain" src="${pageContext.request.contextPath}/resources/logo.png" alt="">
+	    <img class="mb-4 gomain" id="gomain" src="${pageContext.request.contextPath}/resources/img/logo.png" alt="인생은 점진적 과부하 로고">
 	    <hr style="height: 3px; color: #f0ff94; opacity: 0.6;"/>
 	    <!-- 본문 들어가는 부분 -->             
 	    <form id="joinform" class="form-horizontal" role="form" method="post" action="${pageContext.request.contextPath }/member/join">
@@ -285,83 +183,6 @@
 				  
 	});
 	
-
-
-	/*
-	// form 전송시 체크
-	function joinFormCheck() {
-		// 정규표현식
-		var regEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-		var regTel = /^(?:(010-\d{4})|(01[1|6|7|8|9]-\d{3,4}))-(\d{4})$/;
-		var regId = /^[a-zA-Z0-9]{6,15}$/;
-		var regPwd = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,20}$/;
-
-		if( $("#id").val() == "" || $("#pwd").val() == "" || $("#name").val() == "" || $("#birth").val() == "" ||
-			$("#email").val() == "" || $("#tel").val() == "" || $("#gender").val() == ""
-		) {
-			alert("입력하지 않은 사항이 있습니다.");
-			return false;
-		}
-		
-		// 아이디 유효성 검사
-		if($("#id").val().match(regId) == null){
-			alert("아이디는 알파벳과 숫자 조합으로 최소 6자~최대 12자까지 가능합니다.");
-			return false;
-		}
-		
-		// 비밀번호 유효성 검사
-		if($("#pwd").val().match(regPwd) == null){
-			alert("비밀번호는 6자 이상 20자 이하 숫자, 대문자, 소문자, 특수문자를 포함하여야 합니다.");
-			return false;
-		}
-		
-		// 이메일 유효성 검사
-		if($("#email").val().match(regEmail) == null){
-			alert("이메일 입력 양식을 확인해주세요.");
-			return false;
-		}
-		
-		// 휴대폰 번호 유효성 검사
-		if($("#tel").val().match(regTel) == null){
-			alert("휴대폰 번호 입력 양식을 확인해주세요.");
-			return false;
-		}
-		
-		// 아이디 중복검사 여부
-		if(idCheckcnt == 0){
-			alert("아이디 중복검사를 해주세요.");
-			return false;
-		}
-		
-		return true;
-	}
-	*/
-		
-
-	
-	/*
-	// 아이디 중복 검사 함수
-	function idCheck() {
-		let id = $("#id").val()
-		$.ajax({
-				url : "/overload/member/idCheck",
-				type : "post",
-				data : {
-					id : id
-				},
-				cache : false,
-				success : function(result) {
-					if (result == 1) {
-						$('#msg_id_check').text('중복된 아이디 입니다.').css("color","red").css("font-weight", "bold");
-						idCheckcnt = idCheckcnt + 1;
-					} else {
-						$('#msg_id_check').text('사용할 수 있는 아이디 입니다.').css("color","green").css("font-weight", "bold");
-						idCheckcnt = 0;
-					}
-				}
-			});
-	} // idCheck
-	*/
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

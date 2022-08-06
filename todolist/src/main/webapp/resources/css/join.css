@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+* {
+	font-family: 'Noto Sans KR', sans-serif !important;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	padding-bottom: 40px;
+}
+
+.form-signin {
+	width: 100%;
+	max-width: 600px;
+	padding: 15px;
+	margin: auto;
+}
+
+.form-signin .checkbox {
+	font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+	z-index: 2;
+}
+
+.form-signin input[type="email"] {
+	margin-bottom: -1px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+	margin-bottom: 10px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.fw-normal {
+	text-align: center;
+}
+
+.w-49 {
+	width: 49%;
+}
+
+.mb-4 {
+	width: 50%;
+	height: 230px;
+	display: block;
+	margin: 0px auto;
+}
+
+.col-lg-2 {
+	margin: 10px auto;
+}
+
+.form-group {
+	margin-left: 15%;
+}
+
+.col-lg-offset-2 {
+	margin-top: 30px;
+}
+
+.btn-primary {
+	width: 100%;
+	background-color: #f0ff94 !important;
+	border-color: #f0ff94 !important;
+	color: black !important;
+}
+
+.btncustomer {
+	font-weight: bold !important;
+	font-size: 25px !important;
+}
+
+label {
+	font-size: 18px;
+	font-weight: bold;
+	color: white;
+}
+
+.gomain, .gomain:hover {
+	cursor: pointer;
+}
+
+.form-horizontal {
+	width: 80%;
+	margin: 0px auto;
+}
+
+.idclass {
+	width: 78% !important;
+}
+
+.idcheck {
+	width: 20%;
+	float: right;
+	margin-top: -38px;
+	font-weight: bold !important;
+}
+
+@media ( max-width : 767px) {
+	.idcheck {
+		font-size: 13px;
+	}
+}
