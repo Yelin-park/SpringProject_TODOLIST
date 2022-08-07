@@ -15,13 +15,13 @@
 		VALUES (#{id}, #{pwd}, #{name}, #{birth}, #{email}, #{tel}, #{gender}, 0, SYSDATE)
 	</insert>
 	
-	<select id="login" parameterType="org.todolist.domain.MemberDTO" resultType="org.todolist.domain.MemberDTO">
+	<select id="login" parameterType="org.todolist.domain.MemberVO" resultType="org.todolist.domain.MemberVO">
 		SELECT id, pwd
 		FROM member
 		WHERE id = #{id}
 	</select>
 	
-	<update id="withdrawal" parameterType="org.todolist.domain.MemberDTO">
+	<update id="withdrawal" parameterType="org.todolist.domain.MemberVO">
 		UPDATE member
 		SET pwd = #{pwd}, name = #{name}, email = #{email}, tel = #{tel}, use_status = 1
 		WHERE id = #{id}

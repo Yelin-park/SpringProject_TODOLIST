@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Component
 @Data
-public class TodolistDTO {
+public class TodolistVO {
 	
 	private int todono;
 	private String todoname;

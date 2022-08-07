@@ -2,7 +2,7 @@ package org.todolist.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.todolist.domain.MemberDTO;
+import org.todolist.domain.MemberVO;
 import org.todolist.mapper.MemberMapper;
 
 @Service
@@ -16,26 +16,24 @@ public class MemberServiceImpl implements MemberService{
 	public int idCheck(String id) {
 		int result = mapper.idCheck(id);
 		return result;
-	}
+	} // idCheck
 	
 	@Override
-	public int join(MemberDTO member) {
+	public int join(MemberVO member) {
 		int result = mapper.join(member);
 		return result;
-	}
+	} // join
 
 	@Override
-	public MemberDTO login(MemberDTO member) {
-		MemberDTO login = mapper.login(member);
+	public MemberVO login(MemberVO member) {
+		MemberVO login = mapper.login(member);
 		return login;		
-	}
+	} // login
 
 	@Override
-	public int withdrawal(MemberDTO member) {
+	public int withdrawal(MemberVO member) {
 		int result = mapper.withdrawal(member);
 		return result;
-	}
-
-
+	} // withdrawal
 	
-}
+} // MemberService

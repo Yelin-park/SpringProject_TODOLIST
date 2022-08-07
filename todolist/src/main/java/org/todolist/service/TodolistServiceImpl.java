@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.todolist.domain.TodolistDTO;
+import org.todolist.domain.TodolistVO;
 import org.todolist.mapper.TodolistMapper;
 
 @Service
@@ -14,28 +14,28 @@ public class TodolistServiceImpl implements TodolistService{
 	private TodolistMapper mapper;
 
 	@Override
-	public List<TodolistDTO> todoList(String id) {
+	public List<TodolistVO> todoList(String id) {
 		return mapper.todoList(id);
-	}
+	} // todoList
 
 	@Override
-	public List<TodolistDTO> completedList(String id) {
+	public List<TodolistVO> completedList(String id) {
 		return mapper.completedList(id);
-	}
+	} // completedList
 
 	@Override
-	public int addTodolist(TodolistDTO todolist) {
+	public int addTodolist(TodolistVO todolist) {
 		return mapper.addTodolist(todolist);
-	}
+	} // addTodolist
 
 	@Override
 	public int deltodolist(int todono) {
 		return mapper.deltodolist(todono);
-	}
+	} // deltodolist
 
 	@Override
-	public int uptodolist(TodolistDTO todolist) {
+	public int uptodolist(TodolistVO todolist) {
 		return mapper.uptodolist(todolist);
-	}
+	} // uptodolist
 
-}
+} // TodolistService

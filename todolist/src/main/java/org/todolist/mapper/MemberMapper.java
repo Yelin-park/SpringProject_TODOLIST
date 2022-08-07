@@ -1,6 +1,6 @@
 package org.todolist.mapper;
 
-import org.todolist.domain.MemberDTO;
+import org.todolist.domain.MemberVO;
 
 public interface MemberMapper {
 	
@@ -8,12 +8,12 @@ public interface MemberMapper {
 	public int idCheck(String id);
 
 	// 회원가입
-	public int join(MemberDTO member);
+	public int join(MemberVO member);
 	
 	// 로그인
-	public MemberDTO login(MemberDTO member);
+	public MemberVO login(MemberVO member);
 	
 	// 회원탈퇴
-	public int withdrawal(MemberDTO member);
+	public int withdrawal(MemberVO member);
 	
 }

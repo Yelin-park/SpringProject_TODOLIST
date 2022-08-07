@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Component
 @Data
-public class MemberDTO {
+public class MemberVO {
 	
 	private String id;
 	private String pwd;

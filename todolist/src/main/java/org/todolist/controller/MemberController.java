@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.todolist.domain.MemberDTO;
-import org.todolist.mapper.MemberMapper;
+import org.todolist.domain.MemberVO;
 import org.todolist.service.MemberService;
 
 import lombok.Setter;
@@ -34,24 +32,19 @@ public class MemberController {
 	@PostMapping("/idCheck")
 	@ResponseBody
 	public int idCheck(@RequestParam("id") String id) {
-		
 		int result = memberService.idCheck(id);
 		return result;
-		
-	}
+	} // idCheck
 	
 	@GetMapping("/join")
 	public String join() {
-		
 		log.info("회원가입  페이지 진입");
 		return "join";
-		
 	} // join	
 	
 	
 	@PostMapping("/join")
-	public String join(MemberDTO member) {
-		
+	public String join(MemberVO member) {
 		log.info("회원가입 post 요청");
 		
 		String inputPass = member.getPwd();
@@ -67,12 +60,10 @@ public class MemberController {
 		} else {
 			return "redirect:/member/login";
 		}
-		
-	}
+	} // join
 	
 	@PostMapping("/login")
-	public String login(MemberDTO member, HttpSession session, Model model) {
-		
+	public String login(MemberVO member, HttpSession session, Model model) {
 		log.info("로그인 post 요청");
 				
 		session.getAttribute("member");
@@ -84,53 +75,44 @@ public class MemberController {
 			return "login";
 		}
 		
-		MemberDTO login = memberService.login(member);
+		MemberVO login = memberService.login(member);
 		boolean pwdMatch = pwdEncoder.matches(member.getPwd(), login.getPwd());
 		
 		if(login != null && pwdMatch == true) {
 			log.info("로그인 성공");
 			session.setAttribute("member", login);
-			log.info(login);
 			return "redirect:/todolist";
 		} else {
 			log.info("로그인 실패 - 비밀번호 오류");
-			// session.setAttribute("member", null);
-			// rttr.addFlashAttribute("msg", false);
 			model.addAttribute("msg", "pwdmiss");
 			return "login";
 		} 
-		
-	}
+	} // login
 	
 	@GetMapping("/login")
 	public String login() {
-		
 		log.info("로그인 페이지  진입");
 		return "login";
-		
-	}
+	} // login
 	
 	@GetMapping("/logout")
-	public String logout(MemberDTO member, HttpSession session) {
+	public String logout(MemberVO member, HttpSession session) {
 		log.info("로그아웃 요청");
 		
 		session.invalidate();
-		
 		log.info("로그아웃 완료");
+		
 		return "main";
-
-	}
+	} // logout
 	
 	@GetMapping("/withdrawal")
 	public String withdrawal() {
-		
 		log.info("회원탈퇴 페이지 진입");
 		return "withdrawal";
-		
-	}
+	} // withdrawal
 	
 	@PostMapping("/withdrawal")
-	public String withdrawal(MemberDTO member, HttpSession session, Model model) {
+	public String withdrawal(MemberVO member, HttpSession session, Model model) {
 		log.info("회원탈퇴 post 요청");
 		
 		session.getAttribute("member");
@@ -142,12 +124,11 @@ public class MemberController {
 			return "withdrawal";
 		}
 		
-		MemberDTO withdrawalMember = memberService.login(member);
+		MemberVO withdrawalMember = memberService.login(member);
 		
 		boolean pwdMatch = pwdEncoder.matches(member.getPwd(), withdrawalMember.getPwd());
 		
 		if(withdrawalMember != null && pwdMatch == true) {
-			System.out.println(withdrawalMember);
 			withdrawalMember.setName("회원탈퇴");
 			withdrawalMember.setTel("010-1111-1111");
 			withdrawalMember.setEmail("withdrawal@withdrawal.com");
@@ -168,7 +149,7 @@ public class MemberController {
 			return "withdrawal";
 		}
 		
-	}
+	} // withdrawal
 	
 	
-}
+} // controller

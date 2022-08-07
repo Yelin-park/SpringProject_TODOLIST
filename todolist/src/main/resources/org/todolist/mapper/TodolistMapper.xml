@@ -4,13 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.todolist.mapper.TodolistMapper">
 	
-	<select id="todoList" parameterType="String" resultType="org.todolist.domain.TodolistDTO">
+	<select id="todoList" parameterType="String" resultType="org.todolist.domain.TodolistVO">
 		SELECT todono, todoname
 		FROM todolist
 		WHERE id = #{id} AND todostate = 0
 	</select>
 	
-	<select id="completedList" parameterType="String" resultType="org.todolist.domain.TodolistDTO">
+	<select id="completedList" parameterType="String" resultType="org.todolist.domain.TodolistVO">
 		SELECT todono, todoname
 		FROM todolist
 		WHERE id = #{id} AND todostate = 1
@@ -26,7 +26,7 @@
 		WHERE todono = #{todono}
 	</delete>
 	
-	<update id="uptodolist" parameterType="org.todolist.domain.TodolistDTO">
+	<update id="uptodolist" parameterType="org.todolist.domain.TodolistVO">
 		UPDATE todolist
 		SET todostate = #{todostate}
 		WHERE todono = #{todono}
