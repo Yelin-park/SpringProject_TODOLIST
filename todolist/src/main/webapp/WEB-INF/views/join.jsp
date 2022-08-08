@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="${pageContext.request.contextPath}/resources/css/join.css" rel="stylesheet"/>
+<link href="${pageContext.request.contextPath}/resources/css/join.css?after" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <title>인생은 점진적 과부하 - 회원가입</title>
@@ -22,14 +22,14 @@
 	        	<label for="inputId" class="col-lg-2 control-label">아이디</label>
 	        	<span id="msg_id_check"></span>
 	            <div class="col-lg-10">
-	            	<input name="id" type="text" class="form-control onlyAlphabetAndNumber idclass" id="id" data-rule-required="true" placeholder="15자 이내의 알파벳 , 숫자만 입력 가능합니다." maxlength="15">
+	            	<input name="id" type="text" class="form-control onlyAlphabetAndNumber idclass" id="id" data-rule-required="true" placeholder="최소 5자 ~ 최대 15자  / 알파벳 , 숫자만 입력 가능합니다." maxlength="15">
 	            	<button type="button" class="btn btn-primary idcheck" id="idCheck">중복검사</button>
 	            </div>
 	        </div>
 	        <div class="form-group" id="divPassword">
 	            <label for="inputPassword" class="col-lg-2 control-label">비밀번호</label>
 	            <div class="col-lg-10">
-	                <input type="password" class="form-control" id="pwd" name="pwd" data-rule-required="true" placeholder="비밀번호" maxlength="30">
+	                <input type="password" class="form-control" id="pwd" name="pwd" data-rule-required="true" placeholder="최대 30자 / 소문자, 대문자, 특수문자, 숫자를 최소 1개 이상 조합하여주세요." maxlength="30">
 	            </div>
 	        </div>
 	        
@@ -50,20 +50,26 @@
 	        <div class="form-group" id="divBirth">
 	            <label for="inputName" class="col-lg-2 control-label">생년월일</label>
 	            <div class="col-lg-10">
-	                <input name="birth" type="date" class="form-control" id="birth" data-rule-required="true" placeholder="ex)2022-07-29" maxlength="10">
+	                <!-- <input type="text" placeholder="ex) 1995" maxlength="4" id="year" class="form-control birth" style="width: 20%; display: inline-block;"><label for="inputName" class="col-lg-2 control-label birthlabel" style="width: 5%; text-align: center;">년</label> 
+	                <input type="text" placeholder="ex) 02" maxlength="2" id="month" class="form-control birth" style="width: 20%; display: inline-block;"><label for="inputName" class="col-lg-2 control-label birthlabel" style="width: 5%; text-align: center;">월</label>
+	                <input type="text" placeholder="ex) 15" maxlength="2" id="day" class="form-control birth" style="width: 20%; display: inline-block;"><label for="inputName" class="col-lg-2 control-label birthlabel" style="width: 5%; text-align: center;">일</label> -->
+	                <input type="text" placeholder="ex) 1995" maxlength="4" id="year" class="form-control birth"><label for="inputName" class="col-lg-2 control-label birthlabel">년</label> 
+	                <input type="text" placeholder="ex) 02" maxlength="2" id="month" class="form-control birth"><label for="inputName" class="col-lg-2 control-label birthlabel">월</label>
+	                <input type="text" placeholder="ex) 15" maxlength="2" id="day" class="form-control birth"><label for="inputName" class="col-lg-2 control-label birthlabel">일</label>
+	                <input name="birth" type="hidden" id="birth"> 
 	            </div>
 	        </div>
 	            
 	        <div class="form-group" id="divEmail">
 	            <label for="inputEmail" class="col-lg-2 control-label">이메일</label>
 	            <div class="col-lg-10">
-	                <input name="email" type="text" class="form-control" id="email" data-rule-required="true" placeholder="ex)email@naver.com" maxlength="40">
+	                <input name="email" type="text" class="form-control" id="email" data-rule-required="true" placeholder="ex) email@naver.com" maxlength="40">
 	            </div>
 	        </div>
 	        <div class="form-group" id="divPhoneNumber">
 	            <label for="inputPhoneNumber" class="col-lg-2 control-label">휴대폰 번호</label>
 	            <div class="col-lg-10">
-	                <input name="tel" type="text" class="form-control onlyNumber" id="tel" data-rule-required="true" placeholder="ex)010-1234-1234" maxlength="13">
+	                <input name="tel" type="text" class="form-control onlyNumber" id="tel" data-rule-required="true" placeholder="ex) 010-1234-1234" maxlength="13">
 	            </div>
 	        </div>
 	        <div class="form-group">
@@ -133,8 +139,8 @@
 		var regTel = /^(?:(010-\d{4})|(01[1|6|7|8|9]-\d{3,4}))-(\d{4})$/;
 		var regId = /^[a-zA-Z0-9]{5,15}$/;
 		var regPwd = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,20}$/;
-
-		if( $("#id").val() == "" || $("#pwd").val() == "" || $("#name").val() == "" || $("#birth").val() == "" ||
+		
+		if( $("#id").val() == "" || $("#pwd").val() == "" || $("#name").val() == "" ||
 			$("#email").val() == "" || $("#tel").val() == "" || $("#gender").val() == ""
 		) {
 			alert("입력하지 않은 사항이 있습니다.");
@@ -172,9 +178,18 @@
 		}
 		
 		// 비밀번호 일치 여부
-		if(pwdCheckcnt == 0){
+		if(pwdCheckcnt == 0) {
 			alert("비밀번호가 일치한지 확인해 주세요.");
 			return false;
+		}
+		
+		// 생년월일 입력 여부
+		if( $("#year") == "" || $("#year") == null || $("#month") == "" || $("#month") == null || $("#day") == "" || $("#day") == null 
+			|| $("#year").val().length < 4 || $("#month").val().length < 2 || $("#day").val().length < 2 ) {
+			alert("생년월일을 입력해 주세요. (ex. 1995년 02월 15일)");
+			return false;
+		} else{
+			$("#birth").val($("#year").val() + "-" + $("#month").val() + "-" + $("#day").val());	
 		}
 		
 		// 모든 if문을 pass 했다면 회원가입 완료!

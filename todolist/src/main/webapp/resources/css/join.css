@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 * {
-	font-family: 'Noto Sans KR', sans-serif !important;
+	font-family: 'Noto Sans KR', sans-serif!important;
 }
 
 body {
@@ -66,14 +66,14 @@ body {
 
 .btn-primary {
 	width: 100%;
-	background-color: #f0ff94 !important;
-	border-color: #f0ff94 !important;
-	color: black !important;
+	background-color: #f0ff94!important;
+	border-color: #f0ff94!important;
+	color: black!important;
 }
 
 .btncustomer {
-	font-weight: bold !important;
-	font-size: 25px !important;
+	font-weight: bold!important;
+	font-size: 25px!important;
 }
 
 label {
@@ -92,14 +92,24 @@ label {
 }
 
 .idclass {
-	width: 78% !important;
+	width: 78%!important;
 }
 
 .idcheck {
 	width: 20%;
 	float: right;
 	margin-top: -38px;
-	font-weight: bold !important;
+	font-weight: bold!important;
+}
+
+.birth {
+	width: 20%!important;
+	display: inline-block!important;
+}
+
+.birthlabel{
+	width: 5%!important;
+	text-align: center;
 }
 
 @media ( max-width : 767px) {

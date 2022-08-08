@@ -29,11 +29,11 @@
         <div class="card">
           <div class="card-body p-5">
 
-            <form method="post" action="${pageContext.request.contextPath }/todolist" class="d-flex justify-content-center align-items-center mb-4">
+            <form method="post" id="todolistform" action="${pageContext.request.contextPath }/todolist" class="d-flex justify-content-center align-items-center mb-4">
               <div class="form-outline flex-fill">
-                <input type="text" name="todoname" id="form2" class="form-control" placeholder="과부하를 추가하세요!"/>
+                <input type="text" name="todoname" id="form2" class="form-control" placeholder="할 일을 추가하세요!"/>
               </div>
-              <button type="submit" class="btn btn-info ms-2">추가</button>
+              <button type="button" id="todolistbtn" class="btn btn-info ms-2">추가</button>
             </form>
 
             <!-- Tabs navs -->
@@ -79,7 +79,7 @@
                   </c:if>
                 
                   <c:if test="${empty todoList && empty completedList }">
-                  	등록된 과부하가 없습니다.
+                  	등록된 할 일이 없습니다.
                   </c:if>
                 </ul>
               </div>
@@ -98,7 +98,7 @@
                   </c:if>
                   
                   <c:if test="${empty todoList }">
-					등록된 과부하가 없습니다.
+					등록된 할 일이 없습니다.
                   </c:if>
                 </ul>
               </div>
@@ -117,7 +117,7 @@
                   </c:if>
 
                   <c:if test="${empty completedList }">
-					완료한 과부하가 없습니다.
+					완료한 일이 없습니다.
                   </c:if>
                 </ul>
               </div>
@@ -136,6 +136,17 @@
 <script>
 	$(document).ready(function () {
 		$("input[type='checkbox']:checked").next("p").css("text-decoration", "line-through");
+	});
+	
+	
+	$("#todolistbtn").on("click", function () {
+		var todoname = $("input[name='todoname']").val();
+		if(todoname == "" || todoname == null){
+			alert("할 일을 입력해주세요!");
+		} else{
+			$("#todolistform").submit();			
+		}
+		
 	});
 	
 	const all = $("#ex1-tab-1");
