@@ -48,9 +48,10 @@ ul>li>p {
 	fo
 }
 
-.del {
+.del, .nav-item {
 	cursor: pointer;
 }
+
 
 @media ( max-width : 767px) {
 	.mobile {
