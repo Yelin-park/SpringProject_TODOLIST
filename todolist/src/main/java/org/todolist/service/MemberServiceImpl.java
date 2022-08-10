@@ -5,11 +5,14 @@ import org.springframework.stereotype.Service;
 import org.todolist.domain.MemberVO;
 import org.todolist.mapper.MemberMapper;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class MemberServiceImpl implements MemberService{
 
 	@Autowired
-	private MemberMapper mapper;
+	private final MemberMapper mapper;
 	
 	// 아이디 중복 체크
 	@Override

@@ -5,13 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.todolist.domain.TodolistVO;
+import org.todolist.mapper.MemberMapper;
 import org.todolist.mapper.TodolistMapper;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class TodolistServiceImpl implements TodolistService{
 
 	@Autowired
-	private TodolistMapper mapper;
+	private final TodolistMapper mapper;
 
 	@Override
 	public List<TodolistVO> todoList(String id) {

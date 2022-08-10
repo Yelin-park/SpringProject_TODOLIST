@@ -13,18 +13,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.todolist.domain.MemberVO;
+import org.todolist.domain.TodolistVO;
 import org.todolist.service.MemberService;
+import org.todolist.service.TodolistService;
 
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 @Log4j
 @Controller
 @RequestMapping("/member")
+@RequiredArgsConstructor
 public class MemberController {
 	
+	/*
 	@Setter(onMethod_ = {@Autowired})
-	private MemberService memberService;
+	private final MemberService memberService;
+	*/
+	
+	@Autowired
+	private final MemberService memberService;
 	
 	@Inject
 	BCryptPasswordEncoder pwdEncoder;

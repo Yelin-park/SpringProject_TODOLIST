@@ -15,26 +15,29 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.todolist.domain.MemberVO;
 import org.todolist.domain.TodolistVO;
+import org.todolist.mapper.MemberMapper;
 import org.todolist.service.TodolistService;
 
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
+@RequiredArgsConstructor
 public class TodoController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(TodoController.class);
 	
-	@Setter(onMethod_ = {@Autowired})
-	private TodolistService todolistService;
+	@Autowired
+	private final TodolistService todolistService;
 	
-	@Setter(onMethod_ = {@Autowired})
-	private MemberVO member;
+	@Autowired
+	private final MemberVO member;
 	
-	@Setter(onMethod_ = {@Autowired})
-	private TodolistVO todolist;
-
+	@Autowired
+	private final TodolistVO todolist;
+		
 	@GetMapping("/")
 	public String main() {
 		log.info("메인 페이지  진입");
@@ -71,7 +74,6 @@ public class TodoController {
 		log.info("todolist 추가");
 		
 		MemberVO member = (MemberVO) session.getAttribute("member");
-		System.out.println(member.getId());
 		todolist.setId(member.getId());
 		
 		int result = todolistService.addTodolist(todolist);
@@ -89,7 +91,7 @@ public class TodoController {
 	@PostMapping("/delete/todolist")
 	@ResponseBody
 	public int delete(@RequestParam("todono") int todono) {
-		System.out.println(todono);
+		log.info("todono " + todono + "번 삭제");
 		int result = todolistService.deltodolist(todono);
 		return result;
 	} // delete
@@ -98,6 +100,12 @@ public class TodoController {
 	@ResponseBody
 	public int update(@RequestParam int todono, @RequestParam boolean flag) {	
 		int todostate  = flag ? 1 : 0;
+		
+		if(todostate == 1) {
+			log.info("todono " + todono + "번 할 일 완료");
+		} else {
+			log.info("todono " + todono + "번 할 일 미완료");
+		}
 		
 		todolist.setTodono(todono);
 		todolist.setTodostate(todostate);
