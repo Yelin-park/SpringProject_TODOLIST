@@ -6,21 +6,5 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
-<!-- 	<security:http auto-config="true" use-expressions="false">
-		<security:form-login
-			login-page="/login"
-			authentication-failure-url="/login?error"
-		/>
-		
-		<security:intercept-url pattern="/todolist" access="ROLE_USER"/>
-		<security:intercept-url pattern="/todolist" access="ROLE_ADMIN"/>
 
-	</security:http>
-	
-	<security:authentication-manager>
-		<security:authentication-provider>
-			<security:jdbc-user-service data-source-ref="dataSource"			
-			/>
-		</security:authentication-provider>
-	</security:authentication-manager> -->
 </beans>

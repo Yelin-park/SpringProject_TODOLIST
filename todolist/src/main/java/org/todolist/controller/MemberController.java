@@ -27,11 +27,6 @@ import lombok.extern.log4j.Log4j;
 @RequiredArgsConstructor
 public class MemberController {
 	
-	/*
-	@Setter(onMethod_ = {@Autowired})
-	private final MemberService memberService;
-	*/
-	
 	@Autowired
 	private final MemberService memberService;
 	

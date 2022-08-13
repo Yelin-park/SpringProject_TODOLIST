@@ -211,12 +211,12 @@
 			
 	});
 	
-	
-	// var member = "${member}" // 세션 확인용
+	// 로그아웃
 	$("#logoutbtn").on("click", function () {
 		location.href = "${pageContext.request.contextPath}"+"/member/logout";
 	});
 	
+	// 회원탈퇴
 	$("#withdrawalbtn").on("click", function () {
 		location.href = "${pageContext.request.contextPath}"+"/member/withdrawal";
 	});
