@@ -136,6 +136,7 @@
 <script>
 	$(document).ready(function () {
 		$("input[type='checkbox']:checked").next("p").css("text-decoration", "line-through");
+		$("input[name='todoname']").focus();
 	});
 	
 	
