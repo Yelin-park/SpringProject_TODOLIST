@@ -10,9 +10,14 @@
 		WHERE id = #{id}
 	</select>
 	
-	<insert id="join">
+<!-- 	<insert id="join">
 		INSERT INTO member(id, pwd, name, birth, email, tel, gender, use_status, regdate)
 		VALUES (#{id}, #{pwd}, #{name}, #{birth}, #{email}, #{tel}, #{gender}, 0, SYSDATE)
+	</insert> -->
+	
+	<insert id="join">
+		INSERT INTO member(id, pwd, name, birth, email, tel, gender, use_status, regdate)
+		VALUES (#{id}, #{pwd}, #{name}, #{birth}, #{email}, #{tel}, #{gender}, 0, SYSDATE())
 	</insert>
 	
 	<select id="login" parameterType="org.todolist.domain.MemberVO" resultType="org.todolist.domain.MemberVO">

@@ -5,8 +5,8 @@
 <mapper namespace="org.todolist.mapper.TestMapper">
 
 	<select id="getTest" resultType="string">
-		SELECT sysdate
-		FROM dual
+		SELECT *
+		FROM member
 	</select>
 
 </mapper>

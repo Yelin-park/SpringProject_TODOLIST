@@ -16,9 +16,14 @@
 		WHERE id = #{id} AND todostate = 1
 	</select>
 
-	<insert id="addTodolist">
+<!-- 	<insert id="addTodolist">
 		INSERT INTO todolist(todono, todoname, todostate, id)
 		VALUES (seq_todolist.nextval, #{todoname}, 0, #{id})
+	</insert> -->
+	
+	<insert id="addTodolist">
+		INSERT INTO todolist(todoname, todostate, id)
+		VALUES (#{todoname}, 0, #{id})
 	</insert>
 	
 	<delete id="deltodolist" parameterType="Integer">

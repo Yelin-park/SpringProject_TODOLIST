@@ -14,9 +14,13 @@
 	<!-- p 84 -->
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
      <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
+     <property name="jdbcUrl" value="jdbc:log4jdbc:mysql://localhost:3306/overload?serverTimezone=UTC"></property>
+     <property name="username" value="overload"></property>
+     <property name="password" value="Todo1234"></property>
+<!--      <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
      <property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:xe"></property>
      <property name="username" value="todolist"></property>
-     <property name="password" value="list1234"></property>
+     <property name="password" value="list1234"></property> -->
     </bean>     
      
     <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
